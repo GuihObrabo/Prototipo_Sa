@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociedade Acadêmica</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow-y: scroll;
+            background-image: url('./3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .form-container {
+            background: rgba(0, 74, 173, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 300px;
+            width: 100%;
+            transition: box-shadow 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .form-container h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        .form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.7);
+            color: black;
+            transition: background-color 0.3s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-container input[type="text"]:focus,
+        .form-container input[type="email"]:focus,
+        .form-container input[type="password"]:focus,
+        .form-container select:focus {
+            background: rgba(255, 255, 255, 1);
+        }
+        .form-container .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .form-container input[type="checkbox"] {
+            margin-left: 10px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background: black;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .form-container button:hover {
+            background: #555;
+            transform: scale(1.05);
+        }
+        .form-container button:active {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>CADASTRE-SE</h2>
+            <p>Faça parte da nossa comunidade</p>
+            <form id="registerForm" action="#" method="post">
+                <input type="text" name="nome" placeholder="Nome" required>
+                <br> 
+                <input type="email" name="email" placeholder="E-mail" required>
+                <div style="display: flex; align-items: center;">
+                    <input type="password" name="senha" placeholder="Senha" required id="password">
+                    <input type="checkbox" id="showPassword" style="margin-left: 10px;">
+                </div>
+                <input type="password" name="confirmar" placeholder="Confirmar" required>
+                <select name="tipo_conta">
+                    <br> <br>
+                    <option value="Aluno">Tipo de conta: Aluno</option>
+                    <option value="Professor">Professor</option>
+                    <option value="Servidor">Servidor</option>
+                </select>
+                <button type="submit" id="btnEntrar">ENTRAR</button>
+            </form>
+            <p id="successMessage" style="display: none; color: green; text-align: center;">Cadastro efetivado com sucesso!</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script src="/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registerForm');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+            const passwordInput = document.getElementById('password');
+            const successMessage = document.getElementById('successMessage');
+
+            emailjs.init('loq0LZ4BJssC7ODfl'); // Substitua pela sua Public Key
+
+            showPasswordCheckbox.addEventListener('change', function() {
+                passwordInput.type = this.checked ? 'text' : 'password';
+            });
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const container = document.querySelector('.container');
+                container.classList.add('animate');
+                
+                setTimeout(() => {
+                    container.classList.remove('animate');
+                    sendEmail();
+                }, 500); // Duração da animação
+            });
+
+            // Função para enviar o email
+            function sendEmail() {
+                emailjs.send('service_d1bufpq', 'template_2i31aai', {
+                    email: document.querySelector('input[name="email"]').value,
+                    tipo_conta: document.querySelector('select[name="tipo_conta"]').value
+                }, 'loq0LZ4BJssC7ODfl')  // Utilize a Public Key aqui
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    successMessage.style.display = 'block';
+                    redirectToLayout(); // Chama a função para redirecionar para layout.html após 3 segundos
+                }, (error) => {
+                    console.log('FAILED...', error);
+                });
+            }
+
+            // Função para redirecionar para layout.html após cadastro e mostrar mensagem
+            function redirectToLayout() {
+                setTimeout(() => {
+                    window.location.href = 'Layout/layout.html'; // Redireciona para a página inicial após 3 segundos
+                }, 3000); // 3 segundos
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA - Sociedade Acadêmica</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Layout/background_img_dark.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        header, footer {
+            background: linear-gradient(to right, #000, #007BFF);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 25px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-family: 'APTOS BLACK', Arial, sans-serif;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            color: #007BFF;
+        }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a,
+        .dropdown-content label {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover,
+        .dropdown-content label:hover {
+            background-color: #007BFF;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            margin-left: 20px;
+        }
+        p, ul {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-left: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        .about-img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SA - Sociedade Acadêmica</h1>
+        <nav>
+            <a href="#inicio">INÍCIO</a>
+            <div class="dropdown">
+                <a href="#">PERFIL</a>
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Configurações</a>
+                    <label>
+                        <input type="checkbox" id="theme-toggle"> Modo Claro/Escuro
+                    </label>
+                </div>
+            </div>
+            <a href="/cadastro.html">ENTRAR/REGISTRAR-SE</a>
+            <div class="dropdown">
+                <a href="#">LOCALIDADE</a>
+                <div class="dropdown-content">
+                    <a href="#">Barretos</a>
+                    <a href="#">Terra Roxa</a>
+                    <a href="#">Bebedouro</a>
+                    <a href="#">Monte Azul Paulista</a>
+                    <a href="#">Botafogo</a>
+                    <a href="#">Franca</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">SUPORTE</a>
+                <div class="dropdown-content">
+                    <a href="/Redirecionamento_Suporte/email.html">Enviar Email</a>
+                    <a href="/Redirecionamento_Suporte/zapp.html">Whatsapp</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <img src="/imagens_Perfils/icone_corect-removebg-preview.png"alt="icone usuario"width="24px" height="24px"/> 
+                <div class="dropdown-content">
+                    <a href="/Redirecionamento_Suporte/email.html">Enviar Email</a>
+                    <a href="/Redirecionamento_Suporte/zapp.html">Whatsapp</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section id="quem-somos">
+        <h2>Quem Somos</h2>
+        <img src="/Layout/imagem_2024-06-24_214254795-removebg-preview.png" alt="Imagem sobre quem somos" class="about-img">
+        <p>Somos quatro alunos determinados e inovadores, unidos por um propósito comum de transformar a comunicação no ambiente educacional. Fundamos o S.A. (Sistema de Aproximação) com a missão de integrar de forma eficiente o chat das turmas com a coordenação e o servidor, aprimorando assim a integridade da comunicação e promovendo um ambiente acadêmico mais colaborativo e eficiente.</p>
+    </section>
+    <section id="visao-missao-valores">
+        <h2>Nossa Visão</h2>
+        <p>Acreditamos que uma comunicação clara e eficaz é a base para um ambiente de aprendizado próspero. Nosso objetivo é eliminar barreiras e criar uma plataforma que facilite a troca de informações entre alunos, professores e a coordenação, garantindo que todas as partes estejam sempre conectadas e bem informadas. Além disso, buscamos expandir nosso impacto além das fronteiras da nossa instituição, colaborando com outras escolas e promovendo melhores práticas de comunicação.</p>
+        
+        <h2>Nossa Missão</h2>
+        <p>Desenvolver e implementar um sistema de chat integrado que:</p>
+        <ul>
+            <li>Melhore a comunicação entre alunos, professores e coordenação.</li>
+            <li>Proporcione uma plataforma segura e confiável para troca de informações.</li>
+            <li>Promova a transparência e a colaboração dentro do ambiente escolar.</li>
+        </ul>
+        
+        <h2>Nossos Valores</h2>
+        <ul>
+            <li>Inovação: Estamos comprometidos em desenvolver soluções tecnológicas avançadas que atendam às necessidades de comunicação da comunidade escolar.</li>
+            <li>Colaboração: Acreditamos que o trabalho em equipe e a cooperação são essenciais para alcançar nossos objetivos.</li>
+            <li>Transparência: Valorizamos a honestidade e a clareza em todas as nossas interações e processos.</li>
+            <li>Excelência: Buscamos constantemente a melhoria contínua e a excelência em tudo o que fazemos.</li>
+        </ul>
+    </section>
+    <section id="equipe">
+        <h2>Nossa Equipe</h2>
+        <p>Nossa equipe é formada por quatro alunos apaixonados por tecnologia e comunicação, cada um trazendo habilidades únicas e complementares para o projeto. Juntos, combinamos conhecimentos em desenvolvimento de software, design de interfaces, gestão de projetos e suporte técnico.</p>
+    </section>
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Email: <a href="mailto:suporsal@gmail.com">suporsal@gmail.com</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2024 SA - Sociedade Acadêmica. Todos os direitos reservados.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
